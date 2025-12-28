@@ -2,10 +2,7 @@ package com.sifat.Ecom.controller;
 
 import com.sifat.Ecom.model.Product;
 import com.sifat.Ecom.service.ProductService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,5 +24,10 @@ public class ProductController {
     @GetMapping("/products")
     public List<Product> getAllProducts(){
         return service.getAllProducts();
+    }
+
+    @GetMapping("/product/{id}")
+    public Product getProductById(@PathVariable int id){
+        return service.getPorductById(id);
     }
 }
